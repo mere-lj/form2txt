@@ -4,7 +4,7 @@
 from tkinter import *
 from re import search
 import datetime
-import pyperclip
+
 
 
 
@@ -14,36 +14,32 @@ root = Tk()
 root.wm_title("Форма заказа")
 
 
-############
+'''still no copy paste in russian(
 
-# 
-# def copy(event):
-#     print('copy')
-# 
-# def paste(event):
-#     print('paste')
-# 
-# def cut(event):
-#     print('paste')
-# 
-# def test(event):    
-#     print('event.char:', event.char)
-#     print('event.keycode:', event.keycode)
-#     print('event.keysym:', event.keysym)
-#     print('---')
-# 
-# 
-# root.bind('<Control-c>', copy)
-# root.bind('<Control-v>', paste)
-# root.bind('<Control-ntilde>', copy)
-# root.bind('<Control-igrave>', paste)
-# root.bind('<Control-x>', cut)
-# root.bind('<Control-division>', cut)
-# root.bind('<Control-Cyrillic_em>', paste)
-# 
-#         
-##################
+def copy(event):
+    print('copy')
 
+def paste(event):
+    print('paste')
+
+def cut(event):
+    print('paste')
+
+def test(event):    
+    print('event.char:', event.char)
+    print('event.keycode:', event.keycode)
+    print('event.keysym:', event.keysym)
+    print('---')
+
+
+root.bind('<Control-c>', copy)
+root.bind('<Control-v>', paste)
+root.bind('<Control-ntilde>', copy)
+root.bind('<Control-igrave>', paste)
+root.bind('<Control-x>', cut)
+root.bind('<Control-division>', cut)
+root.bind('<Control-Cyrillic_em>', paste)
+'''
 
 
 def getForm():
@@ -91,8 +87,7 @@ def getForm():
                 wtext+=' неверный формат e-mail!'
                 labelWarning.config(text=wtext, bg='red')
 
-    if wtext=='':
-        filename=str(answers[1])+' - ' + ''.join(filter(lambda x: x.isdigit(), str(datetime.datetime.now())))+'.cardboardia'
+        filename=str(answers[1])+' - ' + ''.join(filter(lambda x: x.isdigit(), str(datetime.datetime.now())))+'.txt'
         labelWarning.config(text='''Спасибо, информация сформирована и сохранена в файл '''+filename+'''!
         Вы можете использовать эту же форму для создания новых заказов.''', bg='green')
         f=open(filename, 'w')
